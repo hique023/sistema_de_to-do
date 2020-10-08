@@ -1,7 +1,9 @@
 let listaTodo = document.querySelector('#listaTodo')
 let inputElement = document.querySelector('#inputElement')
 let buttonElement = document.querySelector('#btnElement')
-let todos = []
+
+
+let todos = JSON.parse(localStorage.getItem('list_todos')) || []
 
 function renderTodos() {
     listaTodo.innerHTML = ''
@@ -22,17 +24,25 @@ function renderTodos() {
     }
 }
 
+renderTodos()
+
 function addTodo() {
     let textTodo = inputElement.value
 
     todos.push(textTodo)
     inputElement.value = ''
     renderTodos()
+    saveStorage()
 }
 
 function excluirTodo(pos) {
     todos.splice(pos, 1)
     renderTodos()
+    saveStorage()
+}
+
+function saveStorage() {
+    localStorage.setItem('list_todos', JSON.stringify(todos))
 }
 
 buttonElement.onclick = addTodo
