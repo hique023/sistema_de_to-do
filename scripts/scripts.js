@@ -29,10 +29,14 @@ renderTodos()
 function addTodo() {
     let textTodo = inputElement.value
 
-    todos.push(textTodo)
-    inputElement.value = ''
-    renderTodos()
-    saveStorage()
+    if (textTodo != '') {
+        todos.push(textTodo)
+        inputElement.value = ''
+        renderTodos()
+        saveStorage()
+    } else {
+        alert("Digite uma tarefa para adicionar!")
+    }
 }
 
 function excluirTodo(pos) {
