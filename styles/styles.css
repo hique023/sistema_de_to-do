@@ -28,8 +28,10 @@ input:hover {
 
 button {
     margin: 10px;
+    background-color: #FFB395;
+    border-radius: 5px;
 }
 
 li {
-    list-style-type: none
+    list-style-type: none;
 }
